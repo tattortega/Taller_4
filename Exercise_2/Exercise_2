@@ -1,0 +1,5 @@
+Tener múltiples métodos main no causa ningún problema.
+
+Cuando inicia por primera vez un programa Java, la ejecución comienza en
+alguna función llamada main en una clase especificada por el usuario o por el archivo .jar.
+Una vez que el programa ha comenzado a ejecutarse, todas las demás funciones llamadas main se ignoran o tratan como otras funciones.
