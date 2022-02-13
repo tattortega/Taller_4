@@ -65,7 +65,7 @@ public class Main {
                 new Planet("Neptuno", 1.024E26, 1.64, 49.244, 4.504E9));
 
 
-        for (int options=1; options<3; options++){
+        for (int options = 1; options < 3; options ++){
             option = inputUser.nextInt();
             switch (option){
                 case 1: {

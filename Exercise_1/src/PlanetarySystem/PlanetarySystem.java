@@ -12,7 +12,7 @@ public class PlanetarySystem{
     private final double GRAVITY = 6.673E-11;
     private double distance;
     private final String namePlanetarySystem;
-    private ArrayList<Planet> planets;
+    private final ArrayList<Planet> planets;
 
     /**
      * Constructor para crear el sistema solar
@@ -26,7 +26,7 @@ public class PlanetarySystem{
      * Metodo para agregar planetas al sistema solar
      * @param planet Lista de planetas
      */
-    public void addPlanet(Planet planet){
+    public void addPlanet(Planet planet) {
         planets.add(planet);
     }
 
@@ -63,7 +63,6 @@ public class PlanetarySystem{
      */
     public double calculateGravitationalAttraction(double distance, double mass1, double mass2) {
         distance = Math.pow(distance, 2);
-        double gravitationalAttraction = GRAVITY * ((mass1 * mass2) / distance);
-        return gravitationalAttraction;
+        return GRAVITY * ((mass1 * mass2) / distance);
     }
 }
