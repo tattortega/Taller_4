@@ -3,7 +3,7 @@ package Aplication;
 import java.util.UUID;
 
 /**
- * Clase vehiculo con sus atributos
+ * Clase vehículo con sus atributos
  * @version 1.0.0 2022/02/13
  * @author Ricardo Ortega
  * @since 1.0.0
@@ -18,7 +18,7 @@ public class Vehicle {
     private int wheels;
 
     /**
-     * Constructor para crear un vehiculo
+     * Constructor para crear un vehículo
      * @param meanOfTransport Medio de transporte
      * @param brand Marca
      * @param color Color
@@ -38,7 +38,7 @@ public class Vehicle {
 
     /**
      * Getter
-     * @return Tipo de desplazamiento del vehiculo
+     * @return Tipo de desplazamiento del vehículo
      */
     public String getMeanOfTransport() {
         return meanOfTransport;
@@ -54,7 +54,7 @@ public class Vehicle {
 
     /**
      * Getter
-     * @return Placa del vehiculo
+     * @return Placa del vehículo
      */
     public UUID getPlate() {
         return plate;
@@ -78,7 +78,7 @@ public class Vehicle {
 
     /**
      * Getter
-     * @return Numero de pasajeros
+     * @return Número de pasajeros
      */
     public int getPassengers() {
         return passengers;
@@ -94,7 +94,7 @@ public class Vehicle {
 
     /**
      * Getter
-     * @return Numero de ruedas
+     * @return Número de ruedas
      */
     public int getWheels() {
         return wheels;
@@ -110,7 +110,7 @@ public class Vehicle {
 
     /**
      * Getter
-     * @return Marca del vehiculo
+     * @return Marca del vehículo
      */
     public String getBrand() {
         return brand;
@@ -126,7 +126,7 @@ public class Vehicle {
 
     /**
      * Getter
-     * @return Color del vehiculo
+     * @return Color del vehículo
      */
     public String getColor() {
         return color;
@@ -141,10 +141,10 @@ public class Vehicle {
     }
 
     /**
-     * Metodo para mostrar los datos del vehiculo
+     * Método para mostrar los datos del vehículo
      */
     public void dataVehicle(){
-        System.out.println("Vehiculo "
+        System.out.println("\nVehículo "
                 + "\n Placa: " + getPlate()
                 + "\n Se desplaza por: " + getMeanOfTransport()
                 + "\n Marca: " + getBrand()

@@ -1,6 +1,5 @@
 package Aplication;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.UUID;
 
@@ -20,7 +19,7 @@ public class Main {
      * @param args Consola
      */
     public static void main(String[] args) {
-        Scanner console = new Scanner(System.in);
+        Scanner console = new Scanner(System.in).useDelimiter("\\n");
         int option;
         String transport;
         String color;
@@ -30,73 +29,70 @@ public class Main {
         int wheels;
         int registerVehicle;
         UUID sellVehicle;
-        ArrayList<Vehicle> vehicles;
+        int soldVehicle;
 
         System.out.println("""
-                Bienvenido a este programa que le permite registrar los datos de 10 vehiculos
+                Bienvenido a este programa que le permite registrar los datos de 10 vehículos
                 y elegir los que desea vender.""");
 
 
         VehicleStore store = new VehicleStore();
 
-        do {
-            System.out.println("""
-                   \n Registar lista de vehiculos
+        System.out.println("""
+                   \n Registrar lista de vehículos
                     1.Si
                     2.No""");
-            registerVehicle = console.nextInt();
-            if (registerVehicle == 1) {
-                for (int vehicle = 1; vehicle < 3; vehicle++) {
-                    System.out.println("""
-                            El vehiculo se desplaza por: 
+        registerVehicle = console.nextInt();
+        if (registerVehicle == 1) {
+            for (int vehicle = 0; vehicle < 10; vehicle++) {
+                System.out.println("""
+                            \n El vehículo se desplaza por: 
                             1.Tierra
                             2.Aire
                             3.Agua""");
-                    option = console.nextInt();
-                    if (option == 1) {
-                        transport = "Tierra";
-                    } else if (option == 2) {
-                        transport = "Aire";
-                    } else {
-                        transport = "Agua";
-                    }
-                    System.out.println("Escriba la marca del vehiculo: ");
-                    brand = console.next();
-                    System.out.println("Digite cuantas ruedas tiene el vehiculo. Si no tiene ruedas digite 0");
-                    wheels = console.nextInt();
-                    System.out.println("Escriba el color del vehiculo: ");
-                    color = console.next();
-                    System.out.println("Escriba el kilometraje del vehiculo: ");
-                    mileage = console.nextDouble();
-                    System.out.println("Digite cuantos pasajeros caben en el vehiculo: ");
-                    passengers = console.nextInt();
-
-                    store.addVehicle(new Vehicle(transport, brand, color, mileage, passengers, wheels));
-                    System.out.println("Vehiculo registrado \n");
-                }
-                store.dataArrayVehicle();
-                System.out.println("""
-                        ¿Desea vender algun vehiculo registrado?
-                        1.Si
-                        2.No""");
                 option = console.nextInt();
-                if (option == 1){
-                    System.out.println("De la lista de vehiculos copie la placa del vehiculo que desea " +
-                            "vender y agreguela a continuacion ");
-                    sellVehicle = UUID.fromString(console.next());
-                    for(int i = 0 ; i < store.getVehicles().size(); i++) {
-                        if (store.getVehicles().get(i).getPlate().equals(sellVehicle)){
-                            store.getVehicles().remove(i);
-                            System.out.println("Vehiculo vendido");
-                        }
-                    }
-                }else{
-                    registerVehicle = 2;
+                if (option == 1) {
+                    transport = "Tierra";
+                } else if (option == 2) {
+                    transport = "Aire";
+                } else {
+                    transport = "Agua";
                 }
-                store.dataArrayVehicle();
-            }else if (registerVehicle == 2){
-                System.out.println("Programa terminado");
+                System.out.println("Digite la marca del vehículo: ");
+                brand = console.next();
+                System.out.println("Digite cuantas ruedas tiene el vehículo. Si no tiene ruedas digite 0");
+                wheels = console.nextInt();
+                System.out.println("Digite el color del vehículo: ");
+                color = console.next();
+                System.out.println("Digite el kilometraje del vehículo: ");
+                mileage = console.nextDouble();
+                System.out.println("Digite cuantos pasajeros caben en el vehículo: ");
+                passengers = console.nextInt();
+
+                store.addVehicle(new Vehicle(transport, brand, color, mileage, passengers, wheels));
+                System.out.println("Vehículo registrado");
             }
-        }while (registerVehicle !=2);
+            store.dataArrayVehicle();
+            System.out.println("""
+                       \n¿Desea vender algun vehículo registrado?
+                       1.Si
+                       2.No""");
+            option = console.nextInt();
+            if (option == 1){
+                System.out.println("¿Cuantos vehículos desea vender?");
+                soldVehicle = console.nextInt();
+                System.out.println("""
+                        De la lista de vehículos copie la placa del vehículo que desea
+                        vender y agreguela a continuación.""");
+                for (int i = 0; i < soldVehicle; i++) {
+                    System.out.println("Digite la placa del vehículo:");
+                    sellVehicle = UUID.fromString(console.next());
+                    store.sellVehicles(sellVehicle);
+                }
+            }
+            store.dataArrayVehicle();
+        }else if (registerVehicle == 2){
+            System.out.println("Programa terminado");
+        }
     }
 }
