@@ -24,8 +24,8 @@ public class Main {
         String transport;
         String color;
         String brand;
-        double mileage;
-        int passengers;
+        double maximumSpeed;
+        int seats;
         int wheels;
         int registerVehicle;
         UUID sellVehicle;
@@ -35,14 +35,12 @@ public class Main {
                 Bienvenido a este programa que le permite registrar los datos de 10 vehículos
                 y elegir los que desea vender.""");
 
-
-        VehicleStore store = new VehicleStore();
-
         System.out.println("""
                    \n Registrar lista de vehículos
                     1.Si
                     2.No""");
         registerVehicle = console.nextInt();
+        VehicleStore store = new VehicleStore();
         if (registerVehicle == 1) {
             for (int vehicle = 0; vehicle < 10; vehicle++) {
                 System.out.println("""
@@ -64,12 +62,12 @@ public class Main {
                 wheels = console.nextInt();
                 System.out.println("Digite el color del vehículo: ");
                 color = console.next();
-                System.out.println("Digite el kilometraje del vehículo: ");
-                mileage = console.nextDouble();
-                System.out.println("Digite cuantos pasajeros caben en el vehículo: ");
-                passengers = console.nextInt();
+                System.out.println("Digite la velocidad máxima del vehículo: ");
+                maximumSpeed = console.nextDouble();
+                System.out.println("Digite cuantos asientos tiene el vehículo: ");
+                seats = console.nextInt();
 
-                store.addVehicle(new Vehicle(transport, brand, color, mileage, passengers, wheels));
+                store.addVehicle(new Vehicle(transport, brand, color, maximumSpeed, seats, wheels));
                 System.out.println("Vehículo registrado");
             }
             store.dataArrayVehicle();

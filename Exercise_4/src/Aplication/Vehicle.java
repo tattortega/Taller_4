@@ -13,8 +13,8 @@ public class Vehicle {
     private final UUID plate;
     private String brand;
     private String color;
-    private double mileage;
-    private int passengers;
+    private double maximumSpeed;
+    private int seats;
     private int wheels;
 
     /**
@@ -22,18 +22,18 @@ public class Vehicle {
      * @param meanOfTransport Medio de transporte
      * @param brand Marca
      * @param color Color
-     * @param mileage Kilometraje
-     * @param passengers Pasajeros
+     * @param maximumSpeed Velocidad maxima
+     * @param seats Asientos
      * @param wheels Ruedas
      */
-    public Vehicle(String meanOfTransport, String brand, String color, double mileage, int passengers, int wheels) {
+    public Vehicle(String meanOfTransport, String brand, String color, double maximumSpeed, int seats, int wheels) {
         this.plate = UUID.randomUUID();
         this.meanOfTransport = meanOfTransport;
         this.brand = brand;
         this.color = color;
-        this.mileage = mileage;
+        this.maximumSpeed = maximumSpeed;
         this.wheels = wheels;
-        this.passengers = passengers;
+        this.seats = seats;
     }
 
     /**
@@ -64,32 +64,32 @@ public class Vehicle {
      * Getter
      * @return Kilometraje
      */
-    public double getMileage() {
-        return mileage;
+    public double getMaximumSpeed() {
+        return maximumSpeed;
     }
 
     /**
      * Setter
-     * @param mileage Double
+     * @param maximumSpeed Double
      */
-    public void setMileage(double mileage) {
-        this.mileage = mileage;
+    public void setMaximumSpeed(double maximumSpeed) {
+        this.maximumSpeed = maximumSpeed;
     }
 
     /**
      * Getter
-     * @return Número de pasajeros
+     * @return Número de asientos
      */
-    public int getPassengers() {
-        return passengers;
+    public int getSeats() {
+        return seats;
     }
 
     /**
      * Setter
-     * @param passengers Int
+     * @param seats Int
      */
-    public void setPassengers(int passengers) {
-        this.passengers = passengers;
+    public void setSeats(int seats) {
+        this.seats = seats;
     }
 
     /**
@@ -148,9 +148,9 @@ public class Vehicle {
                 + "\n Placa: " + getPlate()
                 + "\n Se desplaza por: " + getMeanOfTransport()
                 + "\n Marca: " + getBrand()
-                + "\n Kilometraje: " + getMileage() + " km/h"
+                + "\n Kilometraje: " + getMaximumSpeed() + " km/h"
                 + "\n Color: " + getColor()
-                + "\n Pasajeros: " + getPassengers()
+                + "\n Asientos: " + getSeats()
                 + "\n Ruedas: " + getWheels());
     }
 }
