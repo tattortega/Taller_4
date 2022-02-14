@@ -1,13 +1,14 @@
 package Aplication;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.UUID;
 
 /**
  * Clase main
  * El programa se ejecuta desde aqui.
- * Registrar una lista de vehiculos para su posterior venta
- * @version 1.0.0 2022/02/13
+ * Registrar una lista de diferentes vehiculos para su posterior venta
+ * @version 1.0.0 2022/02/14
  * @author Ricardo Ortega
  * @since 1.0.0
  */
@@ -15,62 +16,118 @@ public class Main {
 
     /**
      * Instruciones del programa para el usuario
-     * Crea los vehiculos con sus atributos definidos
+     * Crea los diferentes vehiculos con sus atributos definidos
      * @param args Consola
      */
     public static void main(String[] args) {
         Scanner console = new Scanner(System.in).useDelimiter("\\n");
         int option;
-        String transport;
         String color;
         String brand;
-        double mileage;
-        int passengers;
-        int wheels;
-        int registerVehicle;
+        String model;
+        double maximumSpeed;
+        int seats;
+        int optionRegister;
+        int numberVehicle;
+        int typeVehicle;
         UUID sellVehicle;
         int soldVehicle;
 
         System.out.println("""
-                Bienvenido a este programa que le permite registrar los datos de 10 vehículos
+                Bienvenido a este programa que le permite registrar los datos de diferentes vehículos
                 y elegir los que desea vender.""");
-
-
-        VehicleStore store = new VehicleStore();
-
         System.out.println("""
-                   \n Registrar lista de vehículos
+                   \n Registrar vehículos
                     1.Si
                     2.No""");
-        registerVehicle = console.nextInt();
-        if (registerVehicle == 1) {
-            for (int vehicle = 0; vehicle < 10; vehicle++) {
+        optionRegister = console.nextInt();
+        VehicleStore store = new VehicleStore();
+        if (optionRegister == 1) {
+            System.out.println("¿Cuantos vehiculos quiere registrar?");
+            numberVehicle = console.nextInt();
+            for (int vehicle = 0; vehicle < numberVehicle; vehicle++) {
                 System.out.println("""
-                            \n El vehículo se desplaza por: 
-                            1.Tierra
-                            2.Aire
-                            3.Agua""");
-                option = console.nextInt();
-                if (option == 1) {
-                    transport = "Tierra";
-                } else if (option == 2) {
-                    transport = "Aire";
-                } else {
-                    transport = "Agua";
-                }
+                        \n Eliga el tipo vehículo que desea registar
+                        1.Carro
+                        2.Motocicleta
+                        3.Bicicleta
+                        4.Barco
+                        5.Avión""");
+                typeVehicle = console.nextInt();
                 System.out.println("Digite la marca del vehículo: ");
                 brand = console.next();
-                System.out.println("Digite cuantas ruedas tiene el vehículo. Si no tiene ruedas digite 0");
-                wheels = console.nextInt();
+                System.out.println("Digite el model del vehículo: ");
+                model = console.next();
                 System.out.println("Digite el color del vehículo: ");
                 color = console.next();
-                System.out.println("Digite el kilometraje del vehículo: ");
-                mileage = console.nextDouble();
-                System.out.println("Digite cuantos pasajeros caben en el vehículo: ");
-                passengers = console.nextInt();
-
-                store.addVehicle(new Vehicle(transport, brand, color, mileage, passengers, wheels));
-                System.out.println("Vehículo registrado");
+                System.out.println("Digite la velocidad máxima del vehículo (km): ");
+                maximumSpeed = console.nextDouble();
+                System.out.println("Digite cuantos asientos tiene el vehículo: ");
+                seats = console.nextInt();
+                switch (typeVehicle){
+                    case 1:{
+                        String typeFuel;
+                        int numberDoors;
+                        System.out.println("Digite el tipo de combustible del carro: ");
+                        typeFuel = console.next();
+                        System.out.println("Digite cuantas puertas tiene el carro: ");
+                        numberDoors = console.nextInt();
+                        Car car = new Car(brand, model, color, maximumSpeed, seats, typeFuel, numberDoors);
+                        store.addVehicle(car);
+                        System.out.println("Carro registrado");
+                        break;
+                    }
+                    case 2:{
+                        double cylinderCapacity;
+                        String yearManufacture;
+                        System.out.println("Digite el cilindraje de la motocicleta: ");
+                        cylinderCapacity = console.nextDouble();
+                        System.out.println("Digite el año de fabricacion de la motocicleta: ");
+                        yearManufacture = console.next();
+                        Motorcycle motorcycle = new Motorcycle(brand, model, color, maximumSpeed, seats, cylinderCapacity,
+                                yearManufacture);
+                        store.addVehicle(motorcycle);
+                        System.out.println("Motocicleta registrado");
+                        break;
+                    }
+                    case 3:{
+                        int numberSpeeds;
+                        String typeBicycle;
+                        System.out.println("Digite el tipo de bicicleta: ");
+                        typeBicycle = console.next();
+                        System.out.println("Digite la cantidad de velocidades de la bicicleta: ");
+                        numberSpeeds = console.nextInt();
+                        Bicycle bicycle = new Bicycle(brand, model, color, maximumSpeed, seats, typeBicycle, numberSpeeds);
+                        store.addVehicle(bicycle);
+                        System.out.println("Bicicleta registrado");
+                        break;
+                    }
+                    case 4:{
+                        double turbinePower;
+                        double length;
+                        System.out.println("Digite la cantidad de potencia del barco: ");
+                        turbinePower = console.nextDouble();
+                        System.out.println("Digite la longitud del barco: ");
+                        length = console.nextDouble();
+                        Boat boat = new Boat(brand, model, color, maximumSpeed, seats, turbinePower, length);
+                        store.addVehicle(boat);
+                        System.out.println("Barco registrado");
+                        break;
+                    }
+                    case 5:{
+                        String typeAirplane;
+                        int numberOfEngines;
+                        System.out.println("Digite el tipo de avión: ");
+                        typeAirplane = console.next();
+                        System.out.println("Digite la cantidad de motores del avión: ");
+                        numberOfEngines = console.nextInt();
+                        Airplane airplane = new Airplane(brand, model, color, maximumSpeed, seats, typeAirplane,
+                                numberOfEngines);
+                        store.addVehicle(airplane);
+                        System.out.println("Avión registrado");
+                        break;
+                    }
+                }
             }
             store.dataArrayVehicle();
             System.out.println("""
@@ -91,7 +148,7 @@ public class Main {
                 }
             }
             store.dataArrayVehicle();
-        }else if (registerVehicle == 2){
+        }else if (optionRegister == 2){
             System.out.println("Programa terminado");
         }
     }

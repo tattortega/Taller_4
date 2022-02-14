@@ -4,52 +4,33 @@ import java.util.UUID;
 
 /**
  * Clase vehículo con sus atributos
- * @version 1.0.0 2022/02/13
+ * @version 1.0.0 2022/02/14
  * @author Ricardo Ortega
  * @since 1.0.0
  */
 public class Vehicle {
-    private String meanOfTransport;
     private final UUID plate;
     private String brand;
+    private String model;
     private String color;
-    private double mileage;
-    private int passengers;
-    private int wheels;
+    private double maximumSpeed;
+    private int seats;
 
     /**
      * Constructor para crear un vehículo
-     * @param meanOfTransport Medio de transporte
      * @param brand Marca
+     * @param model Modelo
      * @param color Color
-     * @param mileage Kilometraje
-     * @param passengers Pasajeros
-     * @param wheels Ruedas
+     * @param maximumSpeed Velocidad maxima
+     * @param seats Asientos
      */
-    public Vehicle(String meanOfTransport, String brand, String color, double mileage, int passengers, int wheels) {
+    public Vehicle(String brand, String model, String color, double maximumSpeed, int seats) {
+        this.model = model;
         this.plate = UUID.randomUUID();
-        this.meanOfTransport = meanOfTransport;
         this.brand = brand;
         this.color = color;
-        this.mileage = mileage;
-        this.wheels = wheels;
-        this.passengers = passengers;
-    }
-
-    /**
-     * Getter
-     * @return Tipo de desplazamiento del vehículo
-     */
-    public String getMeanOfTransport() {
-        return meanOfTransport;
-    }
-
-    /**
-     * Setter
-     * @param meanOfTransport Transport
-     */
-    public void setMeanOfTransport(String meanOfTransport) {
-        this.meanOfTransport = meanOfTransport;
+        this.maximumSpeed = maximumSpeed;
+        this.seats = seats;
     }
 
     /**
@@ -62,50 +43,34 @@ public class Vehicle {
 
     /**
      * Getter
-     * @return Kilometraje
+     * @return Maxima velocidad
      */
-    public double getMileage() {
-        return mileage;
+    public double getMaximumSpeed() {
+        return maximumSpeed;
     }
 
     /**
      * Setter
-     * @param mileage Double
+     * @param maximumSpeed Double
      */
-    public void setMileage(double mileage) {
-        this.mileage = mileage;
+    public void setMaximumSpeed(double maximumSpeed) {
+        this.maximumSpeed = maximumSpeed;
     }
 
     /**
      * Getter
-     * @return Número de pasajeros
+     * @return Número de asientos
      */
-    public int getPassengers() {
-        return passengers;
+    public int getSeats() {
+        return seats;
     }
 
     /**
      * Setter
-     * @param passengers Int
+     * @param seats Int
      */
-    public void setPassengers(int passengers) {
-        this.passengers = passengers;
-    }
-
-    /**
-     * Getter
-     * @return Número de ruedas
-     */
-    public int getWheels() {
-        return wheels;
-    }
-
-    /**
-     * Setter
-     * @param wheels int
-     */
-    public void setWheels(int wheels) {
-        this.wheels = wheels;
+    public void setSeats(int seats) {
+        this.seats = seats;
     }
 
     /**
@@ -123,6 +88,23 @@ public class Vehicle {
     public void setBrand(String brand) {
         this.brand = brand;
     }
+
+    /**
+     * Getter
+     * @return Modelo del vehículo
+     */
+    public String getModel() {
+        return model;
+    }
+
+    /**
+     * Setter
+     * @param model String
+     */
+    public void setModel(String model) {
+        this.model = model;
+    }
+
 
     /**
      * Getter
@@ -144,13 +126,11 @@ public class Vehicle {
      * Método para mostrar los datos del vehículo
      */
     public void dataVehicle(){
-        System.out.println("\nVehículo "
-                + "\n Placa: " + getPlate()
-                + "\n Se desplaza por: " + getMeanOfTransport()
+        System.out.println(" Placa: " + getPlate()
                 + "\n Marca: " + getBrand()
-                + "\n Kilometraje: " + getMileage() + " km/h"
+                + "\n Modelo: " + getModel()
+                + "\n Kilometraje: " + getMaximumSpeed() + " km/h"
                 + "\n Color: " + getColor()
-                + "\n Pasajeros: " + getPassengers()
-                + "\n Ruedas: " + getWheels());
+                + "\n Asientos: " + getSeats());
     }
 }

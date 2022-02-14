@@ -5,7 +5,7 @@ import java.util.UUID;
 
 /**
  * Clase tienda de vehiculos
- * @version 1.0.0 2022/02/12
+ * @version 1.0.0 2022/02/14
  * @author Ricardo Ortega
  * @since 1.0.0
  */
@@ -59,7 +59,6 @@ public class VehicleStore {
     /**
      * Método para vender vehículos de la lista
      * @param sellVehicle Placa del vehículo a vender
-     * @return Lista de vehículos
      */
     public void sellVehicles(UUID sellVehicle){
         for (int j = 0; j < getVehicles().size(); j++) {
