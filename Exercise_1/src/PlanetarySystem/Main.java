@@ -15,7 +15,7 @@ import java.util.UUID;
 public class Main {
 
     /**
-     * Instruciones para el usuario del programa
+     * Instruciones del programa para el usuario
      * Crea los planetas con sus atributos definidos
      * @param args Consola
      */

@@ -125,12 +125,12 @@ public class Planet {
      * Metodo para mostrar la informacion del planeta
      */
     public void dataPlanet(){
-        System.out.println(" Planeta: " + name
-        + "\n Id: "+  id
-        + "\n Masa: " + mass + " kg"
-        + "\n Densidad: " + density + " g/cm3"
-        + "\n Diametro: " + diameter + " km"
-        + "\n Distancia al sol: " + distanceToSun + " millones de km");
+        System.out.println(" Planeta: " + getName()
+        + "\n Id: "+  getId()
+        + "\n Masa: " + getMass() + " kg"
+        + "\n Densidad: " + getDensity() + " g/cm3"
+        + "\n Diametro: " + getDiameter() + " km"
+        + "\n Distancia al sol: " + getDistanceToSun() + " millones de km");
     }
 
 }
