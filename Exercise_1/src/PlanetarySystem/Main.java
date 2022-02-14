@@ -35,7 +35,7 @@ public class Main {
 
         System.out.println("""
                 Bienvenido al Sistema Planetario \n              
-                Aqui podrás calcular la atraccion gravitatoria entre dos cuerpos celestes
+                Aqui podrás calcular la atraccion gravitatoria entre dos planetas del sistema solar.
                 Eliga los dos planetas que deseas calcular:
                 1.Mercurio
                 2.Venus
