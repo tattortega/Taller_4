@@ -34,7 +34,8 @@ public class Main {
         int soldVehicle;
 
         System.out.println("""
-                Bienvenido a este programa que le permite registrar los datos de diferentes vehículos
+                Bienvenido 
+                Este programa le permite registrar los datos de diferentes vehículos
                 y elegir los que desea vender.""");
         System.out.println("""
                    \n Registrar vehículos
@@ -87,7 +88,7 @@ public class Main {
                         Motorcycle motorcycle = new Motorcycle(brand, model, color, maximumSpeed, seats, cylinderCapacity,
                                 yearManufacture);
                         store.addVehicle(motorcycle);
-                        System.out.println("Motocicleta registrado");
+                        System.out.println("Motocicleta registrada");
                         break;
                     }
                     case 3:{
@@ -99,7 +100,7 @@ public class Main {
                         numberSpeeds = console.nextInt();
                         Bicycle bicycle = new Bicycle(brand, model, color, maximumSpeed, seats, typeBicycle, numberSpeeds);
                         store.addVehicle(bicycle);
-                        System.out.println("Bicicleta registrado");
+                        System.out.println("Bicicleta registrada");
                         break;
                     }
                     case 4:{

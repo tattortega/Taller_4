@@ -21,12 +21,14 @@ public class Main {
         int typeOrdering;
         int generateArray;
 
-        System.out.println("Bienvenido a este programa que permite generar aleatoriamente \n"
-                + "una lista de 20 números enteros y luego ordenarlos de dos maneras segun su elección");
+        System.out.println("""
+                Bienvenido
+                Este programa le permite generar aleatoriamente una lista de 20 números enteros 
+                y luego ordenarlos de dos maneras segun su elección""");
 
         do {
             System.out.println("""
-                   \n Generar lista de numeros aleatorios
+                   \n ¿Generar lista de numeros aleatorios?
                     1.Si
                     2.No""");
             generateArray = option.nextInt();
@@ -34,7 +36,7 @@ public class Main {
                 arrayRandomNumbers = generateArrayRandomNumbers();
                 System.out.println("\n Lista de números \n" + Arrays.toString(arrayRandomNumbers));
                 System.out.println("""
-                       \n Eliga el tipo de ordenamiento que desea para la lista de números:
+                       \n Elija el tipo de ordenamiento que desea para la lista de números:
                         1.Ordenamiento Búrbuja
                         2.Ordenamiento Quicksort""");
                 typeOrdering = option.nextInt();
@@ -42,6 +44,7 @@ public class Main {
                     System.out.println("""
                             El Ordenamiento Búrbuja funciona revisando cada elemento de la lista que va a ser ordenada 
                             con el siguiente, intercambiándolos de posición si están en el orden equivocado""");
+                    System.out.println("\n Lista de números aleatorios \n" + Arrays.toString(arrayRandomNumbers));
                     bubbleSort(arrayRandomNumbers);
                     System.out.println("\n Lista de números ordenada \n" + Arrays.toString(arrayRandomNumbers));
                 }else {
@@ -51,6 +54,7 @@ public class Main {
                             y se mueven todos los elementos menores que este pivote a su izquierda, y los mayores 
                             a su derecha. A continuación se aplica el mismo método a cada una de las dos partes en las 
                             que queda dividido el array.""");
+                    System.out.println("\n Lista de números aleatorios \n" + Arrays.toString(arrayRandomNumbers));
                     quickSort(arrayRandomNumbers, 0, arrayRandomNumbers.length -1);
                     System.out.println("\n Lista de números ordenada \n" + Arrays.toString(arrayRandomNumbers));
                 }

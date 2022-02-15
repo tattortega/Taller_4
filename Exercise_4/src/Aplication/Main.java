@@ -32,7 +32,8 @@ public class Main {
         int soldVehicle;
 
         System.out.println("""
-                Bienvenido a este programa que le permite registrar los datos de 10 vehículos
+                Bienvenido
+                Este programa le permite registrar los datos de 10 vehículos
                 y elegir los que desea vender.""");
 
         System.out.println("""
