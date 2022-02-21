@@ -40,3 +40,6 @@ dinámico". Revise la clase y úsela (en ficheros diferentes) para realizar un p
 ## Solución
 Para cada ejercicio hay una 
 carpeta con su desarrollo respectivo.
+
+
+Todos los ejercicios fueron realizados en IntelliJ Idea.
